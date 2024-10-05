@@ -1,41 +1,44 @@
 """
-Description: Demonstrates unhandled exceptions.
+Description: Demonstrates what happens when exceptions are not handled.
 Author: Damien Altenburg
 Date: 2023-10-1
 Usage: python unhandled_exceptions.py
 """
+
 from random import randint
 
 quiz_grades = [67.8, 78.9, 89.0, 43.5]
 
 hockey_teams = {
-    "winnipeg": "jets", 
-    "calgary": "flames", 
-    "edmonton": "oilers"
+    "winnipeg": "jets",
+    "calgary": "flames",
+    "edmonton": "oilers",
+    "ottawa": "senators",
+    "vancouver": "canucks",
+    "montreal": "canadians"
 }
 
 # ValueError Example
-#grade = int("damien")
+# grade = int("damien")
 
 # TypeError Example
-#grade = int(None)
+# grade = int(None)
 
 # NameError Example
-#print(number_of_items)
+# print(number_of_items)
 
 # IndexError Example
-#print(quiz_grades[999])
+# print(quiz_grades[999])
 
 # KeyError Example
-
-#print(hockey_teams["ottawa"])
+# print(hockey_teams["chicago"])
 
 # FileNotFoundError Example
 # with open("data.txt") as file:
 #     data = file.read()
 
 # ZeroDivisionError Example
-#result = 9 / 0
+# result = 9 / 0
 
 # AssertionError Example
 # We will see this in a future module.
@@ -43,10 +46,12 @@ hockey_teams = {
 # AttributeError Example
 # We will see this in a future module.
 
-decimal_number = randint(1, 100)
+# NOTE: The code below does not execute when an exception is raised in an 
+# earlier part of the code.
+decimal_number: int = randint(1, 100)
 
-working_number = decimal_number
-binary_number = ""
+working_number: int = decimal_number
+binary_number: int = ""
 
 while working_number > 0:
     # The binary digit is the remainder of dividing by 2
