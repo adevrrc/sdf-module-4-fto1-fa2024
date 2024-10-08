@@ -18,5 +18,9 @@ try:
             print(record)
 except FileNotFoundError:
     print(f"The {filename} was not found. Data is not loaded.")
+except PermissionError as exception:
+    print("You do not have permission to load the data.")
+
+    print(exception)
 
 input("Press <enter> to continue...")
