@@ -12,8 +12,11 @@ filename = "data.txt"
 file_path = f"{script_directory}/{filename}"
 data_file = None
 
-with open(file_path) as data_file:
-    for record in data_file:
-        print(record)
+try:
+    with open(file_path) as data_file:
+        for record in data_file:
+            print(record)
+except FileNotFoundError:
+    print(f"The {filename} was not found. Data is not loaded.")
 
 input("Press <enter> to continue...")
