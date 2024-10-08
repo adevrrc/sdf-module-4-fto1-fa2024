@@ -6,12 +6,21 @@ Usage: python guessing_game.py
 """
 
 from random import randint
+import logging as log
+
+log.basicConfig(level=log.CRITICAL)
+
+# Create logger object
+# Dunder name - Double underscore
+logger = log.getLogger(__name__)
 
 title_text: str = "** JELLYBEAN GUESSING GAME **"
 
 LOW_RANGE: int = 1
 HIGH_RANGE: int = 10
 NUMBER_OF_JELLYBEANS: int = randint(LOW_RANGE, HIGH_RANGE)
+
+logger.debug(f"# Jellybeans: {NUMBER_OF_JELLYBEANS}")
 
 guess_count: int = 0
 
@@ -42,10 +51,15 @@ while not jellybeans_guessed:
                 prompt_text = f"Guess ({LOW_RANGE}-{HIGH_RANGE}): "
         except ValueError as exception:
             print("You must enter a whole number.")
+
+            logger.exception(f"ValueError: Guess was {guess}.", \
+                             exc_info=False)
             
             prompt_text = "Re-enter guess: "
 
     guess_count += 1
+
+    logger.debug(f"Guess count: {guess_count}")
 
     jellybeans_guessed = guess == NUMBER_OF_JELLYBEANS
 
